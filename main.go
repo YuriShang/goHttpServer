@@ -143,10 +143,12 @@ func parseList(data []interface{}, keys []string, old, new interface{}, idx int,
 			new64, _ := strconv.ParseFloat(new.(string), 64)
 			if val == old64 && listTrig == true {
 				data[i] = new64
+				return
 			}
 		case string:
 			if val == old && listTrig == true {
 				data[i] = new
+				return
 			}
 		case map[string]interface{}:
 			if val[keys[len(keys)-1]] != nil {
